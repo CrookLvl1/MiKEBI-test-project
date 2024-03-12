@@ -11,7 +11,6 @@ export const useStore = defineStore('mainstore', () => {
     const transformResponse = (response) => {
         const resultObject = {};
 
-        //Объект содержащий значения ввиде {}
         const taskObject = response.data.fields;
         for (const fieldKey in taskObject) {
             const innerKey = Object.keys(taskObject[fieldKey])[0];

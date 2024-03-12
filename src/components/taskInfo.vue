@@ -1,5 +1,5 @@
 <template>
-    <v-container tag="section" class="grow d-flex flex-column h-100 pa-0">
+    <v-container tag="section" class="d-flex flex-column h-100 pa-0">
         <v-row class="mt-sm-8 gr-8">
             <v-col cols="4" sm="12" class="d-flex justify-end order-sm-1 order-3 pr-0">
                 <v-sheet>
@@ -32,9 +32,9 @@
             </v-col>
         </v-row>
 
-        <v-row class="fill-height">
-            <v-col cols="12" class="d-flex">
-                <v-img class="task-img" :src="task.image" min-width="300" />
+        <v-row class="h-100">
+            <v-col cols="12" class="d-flex h-100">
+                <v-img class="task-img" :src="task.image" />
             </v-col>
         </v-row>
 
@@ -65,10 +65,6 @@ const props = defineProps({
     user-select: none;
 }
 
-.task-img {
-    max-width: 600px;
-}
-
 .v-row {
     justify-content: center;
     align-items: center;
@@ -80,5 +76,10 @@ const props = defineProps({
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.task-img {
+    max-width: 600px;
+    min-width: 300px;
 }
 </style>

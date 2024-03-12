@@ -1,13 +1,17 @@
 <template>
-  <v-sheet class="app-wrapper w-screen h-screen" bg="red">
-    <v-sheet class="w-100 h-100 d-flex flex-column justify-space-between pb-0 pb-sm-4">
+  <v-sheet class="app-wrapper h-screen w-screen" bg="red">
+    <v-sheet class="w-100 h-100 d-flex flex-column pb-0 pb-sm-4">
       <template v-if="task && user">
-        <taskInfo class="task-wrapper" :user="user" :task="task" />
-        <taskAnswerChoose @answer-result="answerResultHandler" class="answer-choose-wrapper"
-          :options="task.answer_options" :correct_option="task.correct_answer" />
+        <v-row class="task-wrapper w-100">
+          <taskInfo :user="user" :task="task" />
+        </v-row>
+        <v-row class="answer-choose-wrapper w-100">
+          <taskAnswerChoose @answer-result="answerResultHandler" :options="task.answer_options"
+            :correct_option="task.correct_answer" />
+        </v-row>
       </template>
 
-      <v-sheet v-else class="d-flex w-100 fill-height justify-center align-center">
+      <v-sheet v-else class="d-flex w-100 h-100 justify-center align-center">
         <v-progress-circular indeterminate size="60" width="6"></v-progress-circular>
       </v-sheet>
 
@@ -44,6 +48,11 @@ const task = computed(() => store.getTask);
 
 <style lang="scss">
 .app-wrapper {
+  min-height: 100svh;
+  min-width: 100svw;
+
+  min-height: 100dvh;
+  min-width: 100dvw;
 
   .task-wrapper {
     letter-spacing: 1px;
@@ -55,6 +64,7 @@ const task = computed(() => store.getTask);
     max-width: 1600px;
     margin: 0 auto;
     box-sizing: border-box;
+    max-height: 80px;
   }
 
 }
@@ -65,9 +75,9 @@ const task = computed(() => store.getTask);
 }
 
 .btn {
+  display: flex;
   min-width: 30px;
   min-height: 30px;
-  display: flex;
 
 }
 </style>
